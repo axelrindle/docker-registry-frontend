@@ -20,3 +20,7 @@ REACT_APP_REGISTRY_API_URL=http://localhost:5000
 ## License
 
 [MIT](LICENSE)
+
+## Copyright Notices
+
+- [src/Moby-logo.png](src/Moby-logo.png) - [Docker Inc.](https://www.docker.com/company/newsroom/media-resources/)
