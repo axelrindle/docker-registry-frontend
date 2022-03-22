@@ -4,7 +4,6 @@ import Page from '../../components/Page'
 import { RootState } from '../../store'
 
 export default function PageHome() {
-    const { error } = useSelector((state: RootState) => state.common)
     const repos = useSelector((state: RootState) => state.docker.repositories)
 
     return (
