@@ -43,12 +43,12 @@ export default function PageRepository() {
                 }}
             >
                 <Card>
-                    <div className="flex justify-between items-end mb-6">
+                    <div className="flex justify-between items-end">
                         <p className="text-4xl">{repository.name}</p>
                         <p><u>{repository.tags.length} tag(s)</u></p>
                     </div>
 
-                    <hr />
+                    <hr className="border-t-2 my-6" />
 
                     <div
                         className="flex justify-between gap-6 mb-6"
