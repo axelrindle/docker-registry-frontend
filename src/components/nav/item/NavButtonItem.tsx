@@ -7,7 +7,7 @@ export interface Props extends Omit<NavBaseProps, 'children'>, NavIconProps {
     onClick?: MouseEventHandler
 }
 
-export default function NavStaticItem(props: Props) {
+export default function NavButtonItem(props: Props) {
     return (
         <NavBaseItem tooltip={props.tooltip}>
             <div
