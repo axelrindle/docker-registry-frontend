@@ -11,6 +11,6 @@ server {
 
     include /etc/nginx/site.conf.d/*.conf;
 
-    ssl_certificate /etc/ssl/app/server.crt;
-    ssl_certificate_key /etc/ssl/app/server.key;
+    ssl_certificate ${APP_DIRECTORY_SSL}/server.crt;
+    ssl_certificate_key ${APP_DIRECTORY_SSL}/server.key;
 }

@@ -7,6 +7,6 @@ fi
 
 # only include variables starting with REACT_APP_
 VARIABLES=$(env | grep REACT_APP_)
-OBJECT=$(jo $VARIABLES)
+OBJECT=$(jo -e $VARIABLES)
 
-echo "window.__RUNTIME_CONFIG__ = $OBJECT;" > "runtime-env.js"
+echo "window.__RUNTIME_CONFIG__ = ${OBJECT:-\{\}};" > "$APP_DIRECTORY/runtime-env.js"
