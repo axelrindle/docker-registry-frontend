@@ -1,0 +1,34 @@
+services:
+    redis:
+        image: redis:latest
+        restart: always
+
+    app:
+        image: registry:2
+        restart: always
+        depends_on:
+            - redis
+        ports:
+            - 5000:5000
+        volumes:
+            - app_data:/var/lib/registry
+            - /etc/ssl/certs:/certs:ro
+            - ./registry-config.yml:/etc/docker/registry/config.yml
+
+    frontend:
+        image: axelrindle/docker-registry-frontend:latest
+        restart: always
+        depends_on:
+            - app
+        ports:
+            - 5001:443
+        environment:
+            - REACT_APP_REGISTRY_API_URL=https://registry.example.org:5000
+        volumes:
+            - frontend_data:/data
+            - /etc/ssl/certs/registry.example.org.crt:/data/ssl/server.crt:ro
+            - /etc/ssl/certs/registry.example.org.key:/data/ssl/server.key:ro
+
+volumes:
+    app_data:
+    frontend_data:

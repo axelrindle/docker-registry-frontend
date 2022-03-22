@@ -1,0 +1,25 @@
+version: 0.1
+
+log:
+  accesslog:
+    disabled: true
+
+storage:
+  delete:
+    enabled: true
+  cache:
+    blobdescriptor: redis
+  filesystem:
+    rootdirectory: /var/lib/registry
+
+http:
+  addr: 0.0.0.0:5000
+  secret: supersecret
+  tls:
+    certificate: /certs/registry.example.org.crt
+    key: /certs/registry.example.org.key
+  headers:
+    Access-Control-Allow-Origin: ["*"]
+
+redis:
+  addr: redis:6379
