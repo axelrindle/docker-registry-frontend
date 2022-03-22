@@ -5,7 +5,7 @@ import 'tippy.js/dist/tippy.css';
 export interface Props {
     children?: ReactElement
     className?: string
-    tooltip: string
+    tooltip?: string
 }
 
 export default function NavBaseItem(props: Props) {
