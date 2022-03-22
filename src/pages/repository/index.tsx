@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import Card from '../../components/Card'
+import InputText from '../../components/form/InputText'
 import Select from '../../components/form/Select'
 import Page from '../../components/Page'
 import { RootState } from '../../store'
-import { Repository } from '../../store/slice/docker'
+import { Tag } from '../../store/slice/docker'
 import Page404 from '../404'
 
 interface Params {
@@ -18,11 +19,17 @@ export default function PageRepository() {
     const repository = repositories.find(el => el.name === repositoryName)
 
     const [filterArchitecture, setFilterArchitecture] = useState<string|undefined>()
+    const [filterName, setFilterName] = useState<string|undefined>()
+    const [visibleTags, setVisibleTags] = useState<Tag[]>([])
 
-    function getTags(repository: Repository) {
-        if (! filterArchitecture) return repository.tags
-        return repository.tags.filter(tag => tag.architecture === filterArchitecture)
-    }
+    useEffect(() => {
+        if (! repository) return
+
+        const tags = repository.tags
+            .filter(tag => filterArchitecture ? tag.architecture === filterArchitecture : true)
+            .filter(tag => filterName ? tag.name.toLowerCase().includes(filterName.toLowerCase()) : true)
+        setVisibleTags(tags)
+    }, [filterArchitecture, filterName, repository])
 
     if (! repository) {
         return <Page404 />
@@ -43,18 +50,26 @@ export default function PageRepository() {
 
                     <hr />
 
-                    <Select
-                        options={Array.from(new Set(repository.tags.map(el => el.architecture))).map(el => ({
-                            display: el,
-                            value: el
-                        }))}
-                        label="Architecture:"
-                        onSelectionChanged={option => setFilterArchitecture(option?.value)}
-                        includeAll
-                    />
+                    <div
+                        className="flex justify-between gap-6 mb-6"
+                    >
+                        <Select
+                            options={Array.from(new Set(repository.tags.map(el => el.architecture))).map(el => ({
+                                display: el,
+                                value: el
+                            }))}
+                            label="Architecture:"
+                            onSelectionChanged={option => setFilterArchitecture(option?.value)}
+                            includeAll
+                        />
+                        <InputText
+                            label="Search:"
+                            onValueChanged={setFilterName}
+                        />
+                    </div>
 
                     <div className="flex flex-col">
-                        {getTags(repository).map(tag => (
+                        {visibleTags.length > 0 && visibleTags.map(tag => (
                             <Link
                                 to={`/r/${repository.name}/tag/${tag.name}`}
                                 key={tag.name}
@@ -78,6 +93,9 @@ export default function PageRepository() {
                                 </pre>
                             </Link>
                         ))}
+                        {visibleTags.length === 0 && (
+                            <p className="text-center">No matches...</p>
+                        )}
                     </div>
                 </Card>
             </div>

@@ -39,10 +39,10 @@ export default function Select(props: Props) {
     }, [selection])
 
     return (
-        <div className="flex items-center mb-6">
+        <div className="flex items-center">
             {props.label && <span>{props.label}</span>}
             <select
-                className={`p-2 ${props.label ? 'ml-4' : ''}`}
+                className={`p-2 rounded ${props.label ? 'ml-4' : ''}`}
                 onChange={onSelect}
                 value={selection}
             >
