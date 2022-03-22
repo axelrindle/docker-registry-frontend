@@ -30,10 +30,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@main
-
       - name: Docker Setup QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -56,7 +52,6 @@ jobs:
           flavor: |
             latest=true
           tags: |
-            type=edge
             type=ref,event=tag
             type=ref,event=branch
             type=semver,pattern={{version}}
@@ -73,11 +68,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/amd64
-
-      - name: Sign the published Docker image
-        if: ${{ github.event_name != 'pull_request' }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
-        run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
 
 # TODO: test
