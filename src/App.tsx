@@ -125,8 +125,24 @@ function App() {
                     )}
                 </div>
 
-                <div className="p-12 bg-gray-300 text-gray-700 dark:bg-gray-700 dark:text-white flex items-center justify-center">
-                    Docker Registry Frontend v{env('VERSION')}
+                <div
+                    className="
+                        flex flex-col items-center justify-center
+                        p-12 gap-2
+                        bg-gray-300 text-gray-700 dark:bg-gray-700 dark:text-white
+                    "
+                >
+                    <p>
+                        Docker Registry Frontend v{process.env.VERSION}
+                    </p>
+                    <a
+                        href="https://github.com/axelrindle/docker-registry-frontend"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-docker underline"
+                    >
+                        Source Code on GitHub
+                    </a>
                 </div>
             </div>
         </Router>
