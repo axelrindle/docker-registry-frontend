@@ -13,41 +13,43 @@ export interface Props {
     onSelectionChanged?: (option: Option | undefined) => void
 }
 
-export default function Select(props: Props) {
-    const [selection, setSelection] = useState<string|undefined>(props.preselect)
+export default function Select({
+    options, includeAll, label, onSelectionChanged, preselect
+}: Props) {
+    const [selection, setSelection] = useState<string|undefined>(preselect)
 
     function onSelect(event: SyntheticEvent) {
         const target = event.target as HTMLSelectElement
         let index = target.selectedIndex
 
-        if (props.includeAll && index === 0) {
+        if (includeAll && index === 0) {
             setSelection(undefined)
         }
         else {
-            if (props.includeAll) {
+            if (includeAll) {
                 index--
             }
-            setSelection(props.options[index].value)
+            setSelection(options[index].value)
         }
     }
 
     useEffect(() => {
-        if (! props.onSelectionChanged) return
+        if (! onSelectionChanged) return
 
-        const option = props.options.find(el => el.value === selection)
-        props.onSelectionChanged(option)
-    }, [selection])
+        const option = options.find(el => el.value === selection)
+        onSelectionChanged(option)
+    }, [selection, onSelectionChanged, options])
 
     return (
         <div className="flex items-center">
-            {props.label && <span>{props.label}</span>}
+            {label && <span>{label}</span>}
             <select
-                className={`p-2 rounded ${props.label ? 'ml-4' : ''}`}
+                className={`p-2 rounded ${label ? 'ml-4' : ''}`}
                 onChange={onSelect}
                 value={selection}
             >
-                {props.includeAll && <option value="">All</option>}
-                {props.options.map(option => (
+                {includeAll && <option value="">All</option>}
+                {options.map(option => (
                     <option
                         key={option.value}
                         value={option.value}

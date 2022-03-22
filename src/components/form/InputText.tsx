@@ -6,18 +6,20 @@ export interface Props {
     onValueChanged?: (value: string | undefined) => void
 }
 
-export default function InputText(props: Props) {
-    const [value, setValue] = useState<string|undefined>(props.initialValue)
+export default function InputText({
+    label, initialValue, onValueChanged
+}: Props) {
+    const [value, setValue] = useState<string|undefined>(initialValue)
 
     useEffect(() => {
-        if (! props.onValueChanged) return
+        if (! onValueChanged) return
 
-        props.onValueChanged(value)
-    }, [value])
+        onValueChanged(value)
+    }, [value, onValueChanged])
 
     return (
         <div className="flex items-center">
-            {props.label && <span>{props.label}</span>}
+            {label && <span>{label}</span>}
             <input
                 type="text"
                 placeholder="GF"
