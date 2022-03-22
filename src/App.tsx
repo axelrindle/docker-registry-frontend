@@ -1,4 +1,4 @@
-import { faHdd, faLayerGroup, faMoon, faQuestionCircle, faStream, faSun, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faHdd, faLayerGroup, faMoon, faQuestionCircle, faStream, faSun, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -19,6 +19,7 @@ import loadingImage from './assets/undraw_synchronize_ccxk.svg'
 import Page404 from './pages/404'
 import env from './utils/env'
 import Tag from './pages/repository/Tag'
+import NavStaticItem from './components/nav/item/NavStaticItem'
 
 function App() {
     const html = document.querySelector('html')
@@ -50,6 +51,10 @@ function App() {
                                 icon={faStream}
                                 link="/"
                                 tooltip="Repository Overview"
+                            />
+                            <NavStaticItem
+                                icon={faChevronRight}
+                                className="text-gray-400"
                             />
                             <NavStaticLinkItem
                                 linkExact={false}
