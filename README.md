@@ -1,3 +1,5 @@
+[![CI](https://github.com/axelrindle/docker-registry-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/axelrindle/docker-registry-frontend/actions/workflows/ci.yml)
+
 # docker-registry-frontend
 
 > :whale: A custom frontend for a selfhosted Docker registry.
