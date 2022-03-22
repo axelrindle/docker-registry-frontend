@@ -56,6 +56,9 @@ jobs:
           flavor: |
             latest=true
           tags: |
+            type=edge
+            type=ref,event=tag
+            type=ref,event=branch
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
