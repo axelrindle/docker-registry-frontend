@@ -17,7 +17,6 @@ import { toggleDarkMode } from './store/slice/common'
 import { loadRepositories } from './store/slice/docker'
 import loadingImage from './assets/undraw_synchronize_ccxk.svg'
 import Page404 from './pages/404'
-import env from './utils/env'
 import Tag from './pages/repository/Tag'
 import NavStaticItem from './components/nav/item/NavStaticItem'
 
