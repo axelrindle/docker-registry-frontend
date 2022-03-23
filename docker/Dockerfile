@@ -36,3 +36,4 @@ EXPOSE 80
 EXPOSE 443
 
 COPY docker/entrypoints/* /docker-entrypoint.d
+RUN chmod +x /docker-entrypoint.d/*.sh
