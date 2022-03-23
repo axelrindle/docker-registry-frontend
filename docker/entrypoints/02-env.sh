@@ -9,4 +9,8 @@ fi
 VARIABLES=$(env | grep REACT_APP_)
 OBJECT=$(jo -e $VARIABLES)
 
-echo "window.__RUNTIME_CONFIG__ = ${OBJECT:-\{\}};" > "$APP_DIRECTORY/runtime-env.js"
+if [ "$OBJECT" = "" ]; then
+    OBJECT="{}"
+fi
+
+echo "window.__RUNTIME_CONFIG__ = $OBJECT;" > "$APP_DIRECTORY/runtime-env.js"
