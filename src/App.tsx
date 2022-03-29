@@ -43,7 +43,7 @@ function App() {
     }, [dispatch])
 
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <div className="w-full h-full flex flex-col">
                 <Navbar className="z-50"
                     itemsNav={
