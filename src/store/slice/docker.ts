@@ -49,6 +49,7 @@ export const loadRepositories = createAsyncThunk(
             }
         } catch (error) {
             dispatch(setError(serializeError(error)))
+            console.error(error)
         }
         dispatch(setLoading(false))
     }
