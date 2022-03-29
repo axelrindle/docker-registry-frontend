@@ -10,12 +10,11 @@
 export default function env(key: string): string | undefined {
     let value: string | undefined
 
-    // check process.env first
-    if (typeof process !== 'undefined') {
-        value = process.env[key]
-    }
-    else if (typeof window.__RUNTIME_CONFIG__ !== 'undefined') {
+    if (typeof window.__RUNTIME_CONFIG__ !== 'undefined') {
         value = window.__RUNTIME_CONFIG__[key]
+    }
+    else if (typeof process !== 'undefined') {
+        value = process.env[key]
     }
     else {
         throw new Error('Unable to retrieve environment information!')
