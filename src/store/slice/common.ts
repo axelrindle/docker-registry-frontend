@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify'
 import { ErrorObject } from 'serialize-error';
 
 export interface State {
@@ -19,6 +20,7 @@ const slice = createSlice({
     reducers: {
         setError(state, action: PayloadAction<State['error']>) {
             state.error = action.payload
+            toast.error(`${action.payload?.message}`)
         },
         setLoading(state, action: PayloadAction<State['loading']>) {
             state.loading = action.payload
