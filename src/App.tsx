@@ -61,15 +61,13 @@ function App() {
                                 className="text-gray-400"
                             />
                             <NavStaticLinkItem
-                                linkExact={false}
-                                link="/r"
                                 icon={faHdd}
+                                regex={/^\/r\/[0-9A-Za-z]{1,}$/g}
                                 tooltip="Repository"
                             />
                             <NavStaticLinkItem
-                                linkExact={false}
-                                link="/r/*/"
                                 icon={faLayerGroup}
+                                regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/.*$/g}
                                 tooltip="Layers"
                             />
                         </NavItems>
@@ -127,10 +125,10 @@ function App() {
                             <Route path="/about">
                                 <PageAbout />
                             </Route>
-                            <Route path="/r/:repositoryName+/tag/:tagName">
+                            <Route path="/r/:repositoryId/tag/:tagName">
                                 <Tag />
                             </Route>
-                            <Route path="/r/:repositoryName+">
+                            <Route path="/r/:repositoryId">
                                 <Repository />
                             </Route>
                             <Route exact path="/">

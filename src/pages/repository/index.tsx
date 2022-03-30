@@ -11,13 +11,13 @@ import { Tag } from '../../store/slice/docker'
 import Page404 from '../404'
 
 interface Params {
-    repositoryName: string
+    repositoryId: string
 }
 
 export default function PageRepository() {
-    const { repositoryName }: Params = useParams()
+    const { repositoryId }: Params = useParams()
     const repositories = useSelector((state: RootState) => state.docker.repositories)
-    const repository = repositories.find(el => el.name === repositoryName)
+    const repository = repositories.find(el => el.id === repositoryId)
 
     const [filterArchitecture, setFilterArchitecture] = useState<string|undefined>()
     const [filterName, setFilterName] = useState<string|undefined>()
@@ -73,7 +73,7 @@ export default function PageRepository() {
                     <div className="flex flex-col">
                         {visibleTags.length > 0 && visibleTags.map(tag => (
                             <Link
-                                to={`/r/${repository.name}/tag/${tag.name}`}
+                                to={`/r/${repository.id}/tag/${tag.name}`}
                                 key={tag.name}
                                 className="
                                     bg-docker text-white

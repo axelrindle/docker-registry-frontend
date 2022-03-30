@@ -10,6 +10,7 @@
         "@fortawesome/react-fontawesome": "^0.1.15",
         "@reduxjs/toolkit": "^1.6.1",
         "@tippyjs/react": "^4.2.5",
+        "base-x": "^4.0.0",
         "canvas-confetti": "^1.5.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",

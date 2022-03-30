@@ -11,7 +11,7 @@ export default function PageHome() {
             {repos.map(repo => (
                 <Link
                     key={repo.name}
-                    to={`/r/${repo.name}`}
+                    to={`/r/${repo.id}`}
                     className="
                         flex justify-between
                         shadow rounded

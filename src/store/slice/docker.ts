@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { serializeError } from 'serialize-error';
 import { RootState } from '..';
 import * as service from '../../service/registry'
+import base62 from '../../utils/base62'
 import { setError, setLoading } from './common';
 
 export interface Tag {
@@ -11,6 +12,7 @@ export interface Tag {
 }
 
 export interface Repository {
+    id: string
     name: string
     tags: Tag[]
 }
@@ -43,6 +45,7 @@ export const loadRepositories = createAsyncThunk(
                 }
 
                 dispatch(addRepository({
+                    id: base62.encode(Buffer.from(repository)),
                     name: repository,
                     tags
                 }))

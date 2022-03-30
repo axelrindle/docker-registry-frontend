@@ -1,12 +1,13 @@
 import { LocationDescriptor } from 'history'
 import { MouseEventHandler } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, NavLinkProps } from 'react-router-dom'
 import NavBaseItem, { Props as NavBaseProps } from './NavBaseItem'
 import NavIcon, { Props as NavIconProps } from './NavIcon'
 
 export interface Props extends Omit<NavBaseProps, 'children'>, NavIconProps {
     className?: string
     hoverable?: boolean
+    isActive?: NavLinkProps['isActive']
     link: LocationDescriptor
     linkExact?: boolean
     onClick?: MouseEventHandler
@@ -38,6 +39,7 @@ export default function NavLinkItem(props: Props) {
                 "
                 exact={props.linkExact ?? true}
                 onClick={props.onClick}
+                isActive={props.isActive}
             >
                 <NavIcon {...props} />
             </NavLink>

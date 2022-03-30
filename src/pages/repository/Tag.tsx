@@ -9,14 +9,14 @@ import registryUrl from '../../utils/registryUrl'
 import Page404 from '../404'
 
 interface Params {
-    repositoryName: string
+    repositoryId: string
     tagName: string
 }
 
 export default function PageTag() {
-    const { repositoryName, tagName }: Params = useParams()
+    const { repositoryId, tagName }: Params = useParams()
     const repositories = useSelector((state: RootState) => state.docker.repositories)
-    const repository = repositories.find(el => el.name === repositoryName)
+    const repository = repositories.find(el => el.id === repositoryId)
     const tag = repository?.tags.find(el => el.name === tagName)
 
     if (! repository || ! tag) {
