@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { PageRepositoryParams } from '.'
 import BackButton from '../../components/BackButton'
 import Card from '../../components/Card'
 import Page from '../../components/Page'
@@ -8,13 +9,12 @@ import { RootState } from '../../store'
 import registryUrl from '../../utils/registryUrl'
 import Page404 from '../404'
 
-interface Params {
-    repositoryId: string
+export interface PageTagParams extends PageRepositoryParams {
     tagName: string
 }
 
 export default function PageTag() {
-    const { repositoryId, tagName }: Params = useParams()
+    const { repositoryId, tagName }: PageTagParams = useParams()
     const repositories = useSelector((state: RootState) => state.docker.repositories)
     const repository = repositories.find(el => el.id === repositoryId)
     const tag = repository?.tags.find(el => el.name === tagName)
@@ -52,9 +52,10 @@ export default function PageTag() {
                         <Tag label={`${tag.fsLayers.length} layer(s)`} />
                     </div>
 
-                    <ul className="flex flex-col">
+                    <div className="flex flex-col">
                         {tag.fsLayers.map((layer, index) => (
-                            <li
+                            <Link
+                            to={`/r/${repository.id}/tag/${tag.name}/layer/${layer}`}
                                 key={index}
                                 className="
                                     bg-docker text-white
@@ -65,9 +66,9 @@ export default function PageTag() {
                                 "
                             >
                                 {layer}
-                            </li>
+                            </Link>
                         ))}
-                    </ul>
+                    </div>
                 </Card>
             </div>
         </Page>

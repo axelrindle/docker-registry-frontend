@@ -1,4 +1,4 @@
-import { faChevronRight, faHdd, faInfoCircle, faLayerGroup, faMapMarkerAlt, faMoon, faQuestionCircle, faStream, faSun, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faHdd, faInfoCircle, faLayerGroup, faMapMarkerAlt, faMoon, faQuestionCircle, faSearch, faStream, faSun, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -24,6 +24,7 @@ import registryUrl from './utils/registryUrl'
 import { ScrollToTop } from 'react-simple-scroll-up'
 import 'react-toastify/dist/ReactToastify.css'
 import PageAbout from './pages/About'
+import PageLayer from './pages/repository/Layer'
 
 function App() {
     const html = document.querySelector('html')
@@ -67,8 +68,13 @@ function App() {
                             />
                             <NavStaticLinkItem
                                 icon={faLayerGroup}
-                                regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/.*$/g}
+                                regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/[0-9A-Za-z_.-]{1,}$/g}
                                 tooltip="Layers"
+                            />
+                            <NavStaticLinkItem
+                                icon={faSearch}
+                                regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/[0-9A-Za-z_.-]{1,}\/layer\/.*$/g}
+                                tooltip="Layer Details"
                             />
                         </NavItems>
                     }
@@ -124,6 +130,9 @@ function App() {
                             </Route>
                             <Route path="/about">
                                 <PageAbout />
+                            </Route>
+                            <Route path="/r/:repositoryId/tag/:tagName/layer/:digest">
+                                <PageLayer />
                             </Route>
                             <Route path="/r/:repositoryId/tag/:tagName">
                                 <Tag />

@@ -10,12 +10,12 @@ import { RootState } from '../../store'
 import { Tag } from '../../store/slice/docker'
 import Page404 from '../404'
 
-interface Params {
+export interface PageRepositoryParams {
     repositoryId: string
 }
 
 export default function PageRepository() {
-    const { repositoryId }: Params = useParams()
+    const { repositoryId }: PageRepositoryParams = useParams()
     const repositories = useSelector((state: RootState) => state.docker.repositories)
     const repository = repositories.find(el => el.id === repositoryId)
 
