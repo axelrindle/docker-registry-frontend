@@ -20,6 +20,7 @@ import Page404 from './pages/404'
 import Tag from './pages/repository/Tag'
 import NavStaticItem from './components/nav/item/NavStaticItem'
 import { ToastContainer } from 'react-toastify'
+import { ScrollToTop } from 'react-simple-scroll-up'
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
@@ -153,6 +154,8 @@ function App() {
                     pauseOnFocusLoss
                     theme={darkModeActive ? "light" : "dark"}
                 />
+
+                <ScrollToTop symbol="⬆" />
             </div>
         </Router>
     )
