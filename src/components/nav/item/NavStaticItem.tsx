@@ -5,14 +5,16 @@ import { twMerge } from 'tailwind-merge'
 
 export interface Props extends Omit<NavBaseProps, 'children'>, NavIconProps {
     className?: string
+    label?: string
 }
 
 export default function NavStaticItem(props: Props) {
-    const className = twMerge(BASE_CLASS_NAMES, props.className)
+    const className = twMerge(BASE_CLASS_NAMES, props.className, props.label ? 'w-auto gap-2' : null)
 
     const element = (
         <div className={className}>
             <NavIcon {...props} />
+            {props.label && <span>{props.label}</span>}
         </div>
     )
 

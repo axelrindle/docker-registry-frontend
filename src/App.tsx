@@ -1,4 +1,4 @@
-import { faChevronRight, faHdd, faLayerGroup, faMoon, faQuestionCircle, faStream, faSun, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faHdd, faLayerGroup, faMapMarkerAlt, faMoon, faQuestionCircle, faStream, faSun, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -20,6 +20,7 @@ import Page404 from './pages/404'
 import Tag from './pages/repository/Tag'
 import NavStaticItem from './components/nav/item/NavStaticItem'
 import { ToastContainer } from 'react-toastify'
+import registryUrl from './utils/registryUrl'
 import { ScrollToTop } from 'react-simple-scroll-up'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -91,6 +92,12 @@ function App() {
                                 icon={faQuestionCircle}
                                 link="/help"
                                 tooltip="Help"
+                            />
+                            <NavStaticItem
+                                className="text-red-500"
+                                icon={faMapMarkerAlt}
+                                label="Registry Endpoint"
+                                tooltip={registryUrl()}
                             />
                         </NavActions>
                     }
