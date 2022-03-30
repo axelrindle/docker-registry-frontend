@@ -1,5 +1,6 @@
 {
     "name": "docker-registry-frontend",
+    "description": "🐳 A custom frontend for a selfhosted Docker registry.",
     "version": "0.1.0",
     "private": true,
     "types": "src/types.d.ts",
@@ -9,6 +10,7 @@
         "@fortawesome/react-fontawesome": "^0.1.15",
         "@reduxjs/toolkit": "^1.6.1",
         "@tippyjs/react": "^4.2.5",
+        "canvas-confetti": "^1.5.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.4",
@@ -49,6 +51,7 @@
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.7",
         "@testing-library/user-event": "^12.8.3",
+        "@types/canvas-confetti": "^1.4.2",
         "@types/jest": "^27.0.1",
         "@types/node": "^16.7.1",
         "@types/react": "^17.0.19",
