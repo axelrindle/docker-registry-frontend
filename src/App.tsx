@@ -44,8 +44,8 @@ function App() {
 
     return (
         <Router basename={process.env.PUBLIC_URL}>
-            <div className="w-full h-full flex flex-col">
-                <Navbar className="z-50"
+            <div className="w-full h-full flex flex-col pt-16">
+                <Navbar className="z-50 fixed top-0"
                     itemsNav={
                         <NavItems>
                             <NavLinkItem
