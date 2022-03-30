@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import BackButton from '../../components/BackButton'
 import Card from '../../components/Card'
 import Page from '../../components/Page'
 import { RootState } from '../../store'
@@ -28,6 +29,7 @@ export default function Tag() {
                     maxWidth: "700px"
                 }}
             >
+                <BackButton />
                 <Card>
                     <div>
                         <p className="text-4xl">{repository.name}</p>

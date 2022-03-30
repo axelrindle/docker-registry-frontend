@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
+import BackButton from '../../components/BackButton'
 import Card from '../../components/Card'
 import InputText from '../../components/form/InputText'
 import Select from '../../components/form/Select'
@@ -42,6 +43,7 @@ export default function PageRepository() {
                     width: "500px"
                 }}
             >
+                <BackButton />
                 <Card>
                     <div className="flex justify-between items-end">
                         <p className="text-4xl">{repository.name}</p>
