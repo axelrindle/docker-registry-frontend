@@ -23,7 +23,10 @@ export default function NavStaticItem(props: Props) {
     }
 
     return (
-        <NavBaseItem tooltip={props.tooltip}>
+        <NavBaseItem
+            tooltip={props.tooltip}
+            tooltipDelay={props.tooltipDelay}
+        >
             {element}
         </NavBaseItem>
     )

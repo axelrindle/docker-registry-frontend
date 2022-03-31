@@ -108,6 +108,7 @@ function App() {
                                 icon={faMapMarkerAlt}
                                 label="Registry Endpoint"
                                 tooltip={registryUrl()}
+                                tooltipDelay={[0, 600]}
                             />
                         </NavActions>
                     }
