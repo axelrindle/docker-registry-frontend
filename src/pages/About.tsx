@@ -137,7 +137,8 @@ export default function PageAbout() {
                     label="Reserved"
                     onClick={() => {
                         toast('Whoop Whoop', {
-                            autoClose: 5000
+                            autoClose: 5000,
+                            pauseOnFocusLoss: false,
                         })
                         launchFirework(5000)
                     }}
