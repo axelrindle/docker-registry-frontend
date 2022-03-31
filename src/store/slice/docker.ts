@@ -5,10 +5,19 @@ import * as service from '../../service/registry'
 import base62 from '../../utils/base62'
 import { setError, setLoading } from './common';
 
+export interface TagHistory {
+    id: string
+    parent?: string
+    cmd: string[]
+    created: string
+    docker_version?: string
+}
+
 export interface Tag {
     name: string
     architecture: string
     fsLayers: string[]
+    history: TagHistory[]
 }
 
 export interface Repository {
