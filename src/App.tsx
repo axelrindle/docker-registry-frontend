@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
     BrowserRouter as Router, Route, Switch
 } from "react-router-dom"
-import NavActions from './components/nav/container/NavActions'
-import NavItems from './components/nav/container/NavItems'
 import NavButtonItem from './components/nav/item/NavButtonItem'
 import NavLinkItem from './components/nav/item/NavLinkItem'
 import NavStaticLinkItem from './components/nav/item/NavStaticLinkItem'
@@ -50,69 +48,65 @@ function App() {
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <div className="w-full h-full flex flex-col pt-16">
-                <Navbar className="z-50 fixed top-0"
-                    itemsNav={
-                        <NavItems>
-                            <NavLinkItem
-                                icon={faStream}
-                                link="/"
-                                tooltip="Repository Overview"
-                            />
-                            <NavStaticItem
-                                icon={faChevronRight}
-                                className="text-gray-400"
-                            />
-                            <NavStaticLinkItem
-                                icon={faHdd}
-                                regex={/^\/r\/[0-9A-Za-z]{1,}$/g}
-                                tooltip="Repository"
-                            />
-                            <NavStaticLinkItem
-                                icon={faLayerGroup}
-                                regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/[0-9A-Za-z_.-]{1,}$/g}
-                                tooltip="Layers"
-                            />
-                            <NavStaticLinkItem
-                                icon={faSearch}
-                                regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/[0-9A-Za-z_.-]{1,}\/layer\/.*$/g}
-                                tooltip="Layer Details"
-                            />
-                        </NavItems>
-                    }
-                    itemsActions={
-                        <NavActions>
-                            <NavButtonItem
-                                className="text-docker"
-                                icon={faSyncAlt}
-                                iconSpin={loading}
-                                onClick={(_) => dispatch(loadRepositories())}
-                                tooltip="Refresh the repository list"
-                            />
-                            <NavButtonItem
-                                className={darkModeActive ? 'dark:text-indigo-500' : 'text-yellow-500'}
-                                icon={darkModeActive ? faMoon : faSun}
-                                onClick={(_) => dispatch(toggleDarkMode())}
-                                tooltip="Toggle the dark mode"
-                            />
-                            <NavLinkItem
-                                icon={faQuestionCircle}
-                                link="/help"
-                                tooltip="Help"
-                            />
-                            <NavLinkItem
-                                icon={faInfoCircle}
-                                link="/about"
-                                tooltip="About"
-                            />
-                            <NavStaticItem
-                                className="text-red-500"
-                                icon={faMapMarkerAlt}
-                                label="Registry Endpoint"
-                                tooltip={env('REACT_APP_REGISTRY_API_URL')}
-                                tooltipDelay={[0, 600]}
-                            />
-                        </NavActions>
-                    }
+                <Navbar
+                    itemsNav={<>
+                        <NavLinkItem
+                            icon={faStream}
+                            link="/"
+                            tooltip="Repository Overview"
+                        />
+                        <NavStaticItem
+                            icon={faChevronRight}
+                            className="text-gray-400"
+                        />
+                        <NavStaticLinkItem
+                            icon={faHdd}
+                            regex={/^\/r\/[0-9A-Za-z]{1,}$/g}
+                            tooltip="Repository"
+                        />
+                        <NavStaticLinkItem
+                            icon={faLayerGroup}
+                            regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/[0-9A-Za-z_.-]{1,}$/g}
+                            tooltip="Layers"
+                        />
+                        <NavStaticLinkItem
+                            icon={faSearch}
+                            regex={/^\/r\/[0-9A-Za-z]{1,}\/tag\/[0-9A-Za-z_.-]{1,}\/layer\/.*$/g}
+                            tooltip="Layer Details"
+                        />
+                    </>}
+                    itemsActions={<>
+                        <NavButtonItem
+                            className="text-docker"
+                            icon={faSyncAlt}
+                            iconSpin={loading}
+                            onClick={(_) => dispatch(loadRepositories())}
+                            tooltip="Refresh the repository list"
+                        />
+                        <NavButtonItem
+                            className={darkModeActive ? 'dark:text-indigo-500' : 'text-yellow-500'}
+                            icon={darkModeActive ? faMoon : faSun}
+                            onClick={(_) => dispatch(toggleDarkMode())}
+                            tooltip="Toggle the dark mode"
+                        />
+                        <NavLinkItem
+                            icon={faQuestionCircle}
+                            link="/help"
+                            tooltip="Help"
+                        />
+                        <NavLinkItem
+                            icon={faInfoCircle}
+                            link="/about"
+                            tooltip="About"
+                        />
+                        <NavStaticItem
+                            className="text-red-500"
+                            icon={faMapMarkerAlt}
+                            label="Registry Endpoint"
+                            tooltip={env('REACT_APP_REGISTRY_API_URL')}
+                            tooltipDelay={[0, 600]}
+                        />
+                    </>}
                 />
 
                 <div className="my-6 flex-grow">
