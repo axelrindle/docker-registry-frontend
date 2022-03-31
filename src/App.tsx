@@ -20,9 +20,9 @@ import Page404 from './pages/404'
 import Tag from './pages/repository/Tag'
 import NavStaticItem from './components/nav/item/NavStaticItem'
 import { ToastContainer } from 'react-toastify'
-import registryUrl from './utils/registryUrl'
 import { ScrollToTop } from 'react-simple-scroll-up'
 import 'react-toastify/dist/ReactToastify.css'
+import env from './utils/env'
 import PageAbout from './pages/About'
 import PageLayer from './pages/repository/Layer'
 
@@ -107,7 +107,7 @@ function App() {
                                 className="text-red-500"
                                 icon={faMapMarkerAlt}
                                 label="Registry Endpoint"
-                                tooltip={registryUrl()}
+                                tooltip={env('REACT_APP_REGISTRY_API_URL')}
                                 tooltipDelay={[0, 600]}
                             />
                         </NavActions>
