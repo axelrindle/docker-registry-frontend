@@ -25,6 +25,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import env from './utils/env'
 import PageAbout from './pages/About'
 import PageLayer from './pages/repository/Layer'
+import Footer from './components/Footer'
 
 function App() {
     const html = document.querySelector('html')
@@ -151,25 +152,7 @@ function App() {
                     )}
                 </div>
 
-                <div
-                    className="
-                        flex flex-col items-center justify-center
-                        p-12 gap-2
-                        bg-gray-300 text-gray-700 dark:bg-gray-700 dark:text-white
-                    "
-                >
-                    <p>
-                        Docker Registry Frontend v{process.env.VERSION}
-                    </p>
-                    <a
-                        href="https://github.com/axelrindle/docker-registry-frontend"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-docker underline"
-                    >
-                        Source Code on GitHub
-                    </a>
-                </div>
+                <Footer />
 
                 <ToastContainer
                     position="bottom-right"
