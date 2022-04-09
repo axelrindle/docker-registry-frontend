@@ -37,7 +37,7 @@ export async function readTag(repository: string, tag: string): Promise<Tag> {
         history: data.history.map(el => {
             const v1 = JSON.parse(el.v1Compatibility)
             return {
-                cmd: v1.container_config.Cmd,
+                cmd: v1.container_config?.Cmd,
                 created: v1.created,
                 id: v1.id,
                 docker_version: v1.docker_version,
