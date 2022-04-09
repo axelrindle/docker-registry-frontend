@@ -15,12 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/cache@v3
+      id: cache
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
     - name: Use Node.js 16
       uses: actions/setup-node@v2
       with:
         node-version: 16
         cache: 'npm'
     - run: npm ci
+      if: steps.cache.outputs.cache-hit != 'true'
     - run: npm run build
     - name: Upload files as artifact
       uses: actions/upload-artifact@v3
