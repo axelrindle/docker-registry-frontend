@@ -1,13 +1,3 @@
-FROM node:16-alpine as build
-
-WORKDIR /app
-
-COPY . .
-
-RUN npm ci
-RUN npm run build
-
-
 FROM nginx:stable-alpine
 
 ENV APP_DIRECTORY="/usr/share/nginx/html"
@@ -25,7 +15,7 @@ COPY docker/nginx/templates/* /etc/nginx/templates/
 
 # copy the previously built static files
 WORKDIR ${APP_DIRECTORY}
-COPY --from=build /app/build .
+COPY build/ .
 
 RUN mkdir /data \
     && mkdir ${APP_DIRECTORY_SSL}
