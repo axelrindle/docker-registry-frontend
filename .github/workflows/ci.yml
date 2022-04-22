@@ -64,7 +64,9 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
     - name: Calculate version string
       id: calculate-version-string
-      run: docker/version.sh ${{ github.event_name }} ${{ github.ref_name }} ${{ github.sha }}
+      run: |
+        chmod +x docker/version.sh
+        docker/version.sh ${{ github.event_name }} ${{ github.ref_name }} ${{ github.sha }}
     - run: npm run build
       env:
         VERSION: ${{ steps.calculate-version-string.outputs.version }}
