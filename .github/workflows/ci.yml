@@ -18,6 +18,9 @@ jobs:
         image: redis:5
       registry:
         image: ghcr.io/axelrindle/registry:2
+        credentials:
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
         ports:
           - 5000:5000
 
