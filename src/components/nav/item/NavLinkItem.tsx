@@ -14,7 +14,7 @@ export interface Props extends Omit<NavBaseProps, 'children'>, NavIconProps {
 }
 
 export const BASE_CLASS_NAMES = `
-h-16 w-16 px-6
+h-16 w-16
 flex justify-center items-center
 transition-colors duration-100
 `

@@ -9,7 +9,7 @@ export interface Props extends Omit<NavBaseProps, 'children'>, NavIconProps {
 }
 
 export default function NavStaticItem(props: Props) {
-    const className = twMerge(BASE_CLASS_NAMES, props.className, props.label ? 'w-auto gap-2' : null)
+    const className = twMerge(BASE_CLASS_NAMES, props.className, props.label ? 'w-auto gap-2 px-3' : null)
 
     const element = (
         <div className={className}>
