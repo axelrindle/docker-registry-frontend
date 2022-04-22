@@ -59,7 +59,11 @@
         "@types/react-dom": "^17.0.9",
         "@types/react-redux": "^7.1.18",
         "@types/react-router-dom": "^5.1.8",
+        "@typescript-eslint/eslint-plugin": "^5.19.0",
+        "@typescript-eslint/parser": "^5.19.0",
         "autoprefixer": "^9.8.6",
+        "eslint": "^7.32.0",
+        "eslint-plugin-react": "^7.29.4",
         "postcss": "^7.0.36",
         "sass": "^1.38.1",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
