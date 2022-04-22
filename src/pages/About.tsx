@@ -107,7 +107,7 @@ export default function PageAbout() {
         <Page flex>
             <div className="flex gap-2 items-end mb-2">
                 <span className="text-4xl font-bold">{pkg.name}</span>
-                <span className="text-xl">v{pkg.version}</span>
+                <span className="text-xl">v{process.env.VERSION}</span>
             </div>
             <p>{pkg.description}</p>
 
