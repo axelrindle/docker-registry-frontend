@@ -17,11 +17,9 @@ jobs:
       redis:
         image: redis:5
       registry:
-        image: registry:2
+        image: ghcr.io/axelrindle/registry:2
         ports:
           - 5000:5000
-        volumes:
-          - ${{ github.workspace }}/docker/example/registry-config.yml:/etc/docker/registry/config.yml
 
     steps:
       - uses: actions/checkout@v3
