@@ -15,9 +15,9 @@ storage:
 http:
   addr: 0.0.0.0:5000
   secret: supersecret
-  tls:
-    certificate: /certs/registry.example.org.crt
-    key: /certs/registry.example.org.key
+#   tls:
+#     certificate: /certs/registry.example.org.crt
+#     key: /certs/registry.example.org.key
   headers:
     Access-Control-Allow-Origin: ["*"]
 
