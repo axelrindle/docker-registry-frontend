@@ -21,7 +21,7 @@ jobs:
         ports:
           - 5000:5000
         volumes:
-          - "$GITHUB_WORKSPACE/docker/example/registry-config.yml:/etc/docker/registry/config.yml"
+          - ${{ github.workspace }}/docker/example/registry-config.yml:/etc/docker/registry/config.yml
 
     steps:
       - uses: actions/checkout@v3
