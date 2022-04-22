@@ -1,5 +1,7 @@
+import { ReactNode } from 'react'
+
 export interface Props {
-    children?: any
+    children?: ReactNode
     flex?: boolean
 }
 
