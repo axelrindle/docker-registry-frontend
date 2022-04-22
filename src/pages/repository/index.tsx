@@ -40,7 +40,7 @@ export default function PageRepository() {
         <Page flex>
             <div
                 style={{
-                    width: "500px"
+                    width: '500px'
                 }}
             >
                 <BackButton />

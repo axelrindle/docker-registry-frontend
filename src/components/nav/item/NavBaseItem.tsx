@@ -15,7 +15,8 @@ export default function NavBaseItem(props: Props) {
             content={props.tooltip}
             placement="bottom"
             delay={props.tooltipDelay === undefined ? [600, 0] : props.tooltipDelay}
-            children={props.children}
-        />
+        >
+            {props.children}
+        </Tippy>
     )
 }

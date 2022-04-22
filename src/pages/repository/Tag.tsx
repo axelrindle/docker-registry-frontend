@@ -27,7 +27,7 @@ export default function PageTag() {
         <Page flex>
             <div
                 style={{
-                    maxWidth: "700px"
+                    maxWidth: '700px'
                 }}
             >
                 <BackButton />

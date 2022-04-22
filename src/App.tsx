@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     BrowserRouter as Router, Route, Switch
-} from "react-router-dom"
+} from 'react-router-dom'
 import NavButtonItem from './components/nav/item/NavButtonItem'
 import NavLinkItem from './components/nav/item/NavLinkItem'
 import NavStaticLinkItem from './components/nav/item/NavStaticLinkItem'
@@ -153,7 +153,7 @@ function App() {
                     newestOnTop
                     pauseOnHover
                     pauseOnFocusLoss
-                    theme={darkModeActive ? "light" : "dark"}
+                    theme={darkModeActive ? 'light' : 'dark'}
                 />
 
                 <ScrollToTop symbol="⬆" />

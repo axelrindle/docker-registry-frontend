@@ -1,8 +1,8 @@
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import Page from "../components/Page";
-import image404 from "../assets/undraw_page_not_found_re_e9o6.svg"
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import Page from '../components/Page';
+import image404 from '../assets/undraw_page_not_found_re_e9o6.svg'
 
 export default function Page404() {
     return (
@@ -12,7 +12,7 @@ export default function Page404() {
                     type="image/svg+xml"
                     data={image404}
                     style={{
-                        width: "fit-content"
+                        width: 'fit-content'
                     }}
                 >
                     Loading...

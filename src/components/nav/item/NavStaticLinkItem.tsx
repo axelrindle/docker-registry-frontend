@@ -1,6 +1,6 @@
 import NavLinkItem, { Props as NavLinkItemProps } from './NavLinkItem';
 
-export interface Props extends Omit<NavLinkItemProps, "isActive"|"link"|"linkExact"> {
+export interface Props extends Omit<NavLinkItemProps, 'isActive'|'link'|'linkExact'> {
     regex: RegExp
 }
 

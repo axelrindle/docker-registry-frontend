@@ -1,5 +1,5 @@
 export interface Props {
-    label: String
+    label: string
 }
 
 export default function Tag({
