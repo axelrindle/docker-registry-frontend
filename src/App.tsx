@@ -84,6 +84,7 @@ function App() {
                             tooltip="Refresh the repository list"
                         />
                         <NavButtonItem
+                            id="toggleDarkMode"
                             className={darkModeActive ? 'dark:text-indigo-500' : 'text-yellow-500'}
                             icon={darkModeActive ? faMoon : faSun}
                             onClick={(_) => dispatch(toggleDarkMode())}
