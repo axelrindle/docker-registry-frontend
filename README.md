@@ -1,4 +1,6 @@
 [![CI](https://github.com/axelrindle/docker-registry-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/axelrindle/docker-registry-frontend/actions/workflows/ci.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/214110a7990a49d1872f468a1b750797)](https://www.codacy.com/gh/axelrindle/docker-registry-frontend/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=axelrindle/docker-registry-frontend&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/214110a7990a49d1872f468a1b750797)](https://www.codacy.com/gh/axelrindle/docker-registry-frontend/dashboard?utm_source=github.com&utm_medium=referral&utm_content=axelrindle/docker-registry-frontend&utm_campaign=Badge_Coverage)
 
 # docker-registry-frontend
 
