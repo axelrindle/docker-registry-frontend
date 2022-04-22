@@ -9,6 +9,7 @@ import { twMerge } from 'tailwind-merge'
 import pkg from '../../package.json'
 import Card from '../components/Card'
 import Page from '../components/Page'
+import Version from '../components/Version'
 
 interface GridItemProps {
     className?: string
@@ -107,7 +108,7 @@ export default function PageAbout() {
         <Page flex>
             <div className="flex gap-2 items-end mb-2">
                 <span className="text-4xl font-bold">{pkg.name}</span>
-                <span className="text-xl">v{process.env.VERSION}</span>
+                <Version />
             </div>
             <p>{pkg.description}</p>
 

@@ -1,3 +1,5 @@
+import Version from './Version'
+
 export default function Footer() {
     return (
         <div
@@ -8,7 +10,7 @@ export default function Footer() {
             "
         >
             <p className="text-center">
-                Docker Registry Frontend v{process.env.VERSION}
+                Docker Registry Frontend <Version />
             </p>
             <a
                 href="https://github.com/axelrindle/docker-registry-frontend"
