@@ -139,6 +139,9 @@ export default function PageAbout() {
                     onClick={() => {
                         toast('Whoop Whoop', {
                             autoClose: 5000,
+                            closeOnClick: false,
+                            draggable: false,
+                            pauseOnHover: false,
                             pauseOnFocusLoss: false,
                         })
                         launchFirework(5000)
