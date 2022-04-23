@@ -8,7 +8,7 @@ if ! test -f "$SSL_KEY"; then
     echo "Generating a default SSL certificate..."
 
     mkdir -p "$APP_DIRECTORY_SSL"
-    openssl genrsa -out $SSL_KEY 2048
+    openssl genrsa -out "$SSL_KEY" 2048
     openssl req -x509 \
         -config "$APP_DIRECTORY_SSL/openssl.conf" \
         -nodes \
