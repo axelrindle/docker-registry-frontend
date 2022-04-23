@@ -1,7 +1,13 @@
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Tippy from '@tippyjs/react'
+import { useState } from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { PageRepositoryParams } from '.'
 import BackButton from '../../components/BackButton'
+import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Page from '../../components/Page'
 import Tag from '../../components/Tag'
@@ -23,6 +29,9 @@ export default function PageTag() {
         return <Page404 />
     }
 
+    const [copied, setCopied] = useState(false)
+    const pullCommand = `docker pull ${registryUrl()}/${repository.name}:${tag.name}`
+
     return (
         <Page flex>
             <div
@@ -39,10 +48,29 @@ export default function PageTag() {
 
                     <hr className="my-6" />
 
-                    <div className="bg-gray-500 text-white p-4">
-                        <pre className="whitespace-pre-wrap">
-                            docker pull {registryUrl()}/{repository.name}:{tag.name}
-                        </pre>
+                    <div className="flex gap-4">
+                        <div className="flex-1 bg-gray-500 text-white p-4">
+                            <pre className="whitespace-pre-wrap">
+                                {pullCommand}
+                            </pre>
+                        </div>
+                        <Tippy
+                            placement="top"
+                            content={!copied ? 'Copy to clipboard' : 'Copied!'}
+                            hideOnClick={false}
+                            onHidden={() => setCopied(false)}
+                        >
+                            <span className="min-h-full">
+                                <CopyToClipboard
+                                    text={pullCommand}
+                                    onCopy={() => setCopied(true)}
+                                >
+                                    <Button className="m-0 h-full">
+                                        <FontAwesomeIcon icon={faCopy} />
+                                    </Button>
+                                </CopyToClipboard>
+                            </span>
+                        </Tippy>
                     </div>
 
                     <hr className="my-6" />
