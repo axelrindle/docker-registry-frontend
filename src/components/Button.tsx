@@ -5,7 +5,7 @@ export interface Props {
     children?: ReactNode
     className?: string
     onClick?: MouseEventHandler
-    ref?: LegacyRef<any>
+    ref?: LegacyRef<never>
 }
 
 const defaultClassName = `
