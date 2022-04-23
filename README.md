@@ -7,13 +7,53 @@
 
 > :whale: A custom frontend for a selfhosted Docker registry.
 
-## Configuration
+## Deployment
+
+The directory [docker/example](docker/example) contains example configuration for Docker Compose.
+
+### Docker Image
+
+```shell
+docker pull axelrindle/docker-registry-frontend:<VERSION>
+```
+
+Replace `<VERSION>` with `latest` or any available release tag.
+
+### Configuration
 
 Configuration is done via environment variables.
+
+#### REACT_APP_REGISTRY_API_URL
+
+**Required**
+
+Specifies the registry endpoint to use.
 
 ```properties
 REACT_APP_REGISTRY_API_URL=http://localhost:5000
 ```
+
+### Volumes
+
+All application data will be stored inside the container at `/data`. Mount a volume at that point to persist that data.
+
+### Ports
+
+The container exposes two ports:
+
+- `80` for HTTP
+
+- `443` for HTTPS (see below)
+
+### HTTPS Connection
+
+By default, a custom certificate is generated if none is found inside the data directory.
+
+To use your own certificate, mount it & it's key onto the following files inside the container:
+
+- **Certificate**: `/data/ssl/server.crt`
+
+- **Key**: `/data/ssl/server.key`
 
 ## Development
 
